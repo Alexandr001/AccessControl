@@ -1,72 +1,45 @@
-﻿using AccessControl.Enums;
+using System.Text.Json;
 
-namespace AccessControl
+namespace AccessControl;
+
+public class Repository
 {
-	public class Repository
+	private const string PATH_TO_JSON = "/Admin/repository.json";
+	public List<UserModel> List { get; private set; }
+	public Repository()
 	{
-		private const string ADMIN_FOLDER = @"Admin\";
-		private const string BLOCKED_ENTRIES = @"Admin\BlockedEntries.txt";
-		private const string ALEXANDER = "Alexander";
-		private const string ADILYA = "Adilya";
-		private const string ARTEM = "Artem";
-		private const string POPOV = "Popov";
-		public readonly Dictionary<string, UserType> userCollection = new() {
-				[ALEXANDER] = UserType.USER,
-				[ADILYA] = UserType.USER,
-				[ARTEM] = UserType.USER,
-				[POPOV] = UserType.ADMIN
-		};
-		public readonly Dictionary<string, string> passwordCollection = new() {
-				[ALEXANDER] = "1234aaa",
-				[ADILYA] = "1234bbb",
-				[ARTEM] = "1234vvv",
-				[POPOV] = "1234admin"
-		};
-		public readonly Dictionary<string, List<int>> accessCollection = new() {
-				[ALEXANDER] = ReadAccess(ADMIN_FOLDER + ALEXANDER + ".txt"),
-				[ADILYA] = ReadAccess(ADMIN_FOLDER + ADILYA + ".txt"),
-				[ARTEM] = ReadAccess(ADMIN_FOLDER + ARTEM + ".txt"),
-				[POPOV] = null
-		};
-		public readonly Dictionary<string, bool> isBlock = new() {
-				/* Последовательность в файле: Alexander, Adilya, Artem */
-				[ALEXANDER] = ReadBlockedEntries(BLOCKED_ENTRIES)[0],
-				[ADILYA] = ReadBlockedEntries(BLOCKED_ENTRIES)[1],
-				[ARTEM] = ReadBlockedEntries(BLOCKED_ENTRIES)[2],
-				[POPOV] = true
-		};
+		List = JsonSerializer.Deserialize<List<UserModel>>(System.IO.File.ReadAllText(PATH_TO_JSON)) ??
+		       throw new NullReferenceException();
+	}
 
-		private static List<int> ReadAccess(string path)
-		{
-			using (StreamReader reader = new(path)) {
-				List<int> accessRights = new();
-				string right;
-				while ((right = reader.ReadLine()) != null) {
-					accessRights.Add(Convert.ToInt32(right));
-				}
-				return accessRights;
-			}
-		}
+	public UserModel? GetUser(string login)
+	{
+		return List.Find(u => u.Login == login);
+	}
 
-		private static List<bool> ReadBlockedEntries(string path)
-		{
-			using (StreamReader reader = new(path)) {
-				List<bool> isBlock = new();
-				string right;
-				while ((right = reader.ReadLine()) != null) {
-					isBlock.Add(Convert.ToBoolean(right));
-				}
-				return isBlock;
-			}
+	public void SetUsers(UserModel model)
+	{
+		int findIndex = List.FindIndex(m => m.Login == model.Login);
+		if (findIndex == -1) {
+			throw new Exception("Не удалось найти пользователя. Что то пошло не так!");
 		}
+		List[findIndex] = model;
+		JsonSerializer.Serialize(List);
+	}
 
-		public static void WriteBlockedEntries(Dictionary<string, bool> dictionary)
-		{
-			using (StreamWriter writer = new(BLOCKED_ENTRIES, false)) {
-				foreach (KeyValuePair<string, bool> pair in dictionary) {
-					writer.WriteLine(pair.Value);
-				}
-			}
-		}
+	public void AddUser(UserModel model)
+	{
+		List.Add(model);
+	}
+	public void RemoveUser(string login)
+	{
+		UserModel userModel = GetUser(login) ??
+		                      throw new NullReferenceException("UserModel is NULL! (Remove user)");
+		List.Remove(userModel);
+	}
+
+	private void OverwritingJsonFile(string jsonStr)
+	{
+		System.IO.File.WriteAllText(PATH_TO_JSON, jsonStr);
 	}
 }

@@ -31,14 +31,4 @@ public class File
 	{
 		System.IO.File.Delete(name);
 	}
-
-	public void Copy(string name, string? copyPath)
-	{
-		System.IO.File.Copy(name, copyPath, true);
-	}
-
-	public void Move(string name, string? movePath)
-	{
-		System.IO.File.Move(name, movePath);
-	}
 }

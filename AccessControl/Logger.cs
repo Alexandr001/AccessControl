@@ -2,20 +2,20 @@
 
 namespace AccessControl
 {
-	public class Loger
+	public class Logger
 	{
 		private const string PATH = @"Admin\journal.txt";
-		public void LogEntry(UserAccess action)
+		public void LogEntry(UserModel model, UserAccess action)
 		{
-			string log = $"Пользователь [{UserModel.LoginUser}]; действие[{action}]; дата и время: {DateTime.Now}";
+			string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";
 			using (StreamWriter writer = new(PATH, true))
 			{
 				writer.WriteLine(log);
 			}
 		}
-		public void LogEntry(string action)
+		public void LogEntry(UserModel model, string action)
 		{
-			string log = $"Пользователь [{UserModel.LoginUser}]; действие[{action}]; дата и время: {DateTime.Now}";
+			string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";
 			using (StreamWriter writer = new StreamWriter(PATH, true))
 			{
 				writer.WriteLine(log);

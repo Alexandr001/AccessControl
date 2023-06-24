@@ -1,58 +1,61 @@
-﻿using AccessControl.Enums;
-
-namespace AccessControl;
+﻿namespace AccessControl;
 
 public class Identification
 {
 	public const int MAXIMUM_NUMBER_OF_ATTEMPTS = 3;
-	private readonly Repository _repository = new();
-	private readonly Loger _loger = new();
-	private string _login;
-	private string _password;
-	public void CreateFolder() =>
-			Directory.CreateDirectory(UserModel.HomeFolder);
-	public bool CheckLogin()
+	private readonly Logger _logger = new();
+	private readonly Repository _repo;
+
+	public Identification(Repository repo)
 	{
-		for (int i = 0; i < MAXIMUM_NUMBER_OF_ATTEMPTS; i++)
-		{
-			_login = Console.ReadLine();
-			foreach (KeyValuePair<string, UserType> id in
-			         _repository.userCollection) {
-				if (id.Key == _login) {
-					UserModel userModel = new(_login,
-					                          _repository.userCollection[_login],
-					                          _login,
-					                          _repository.accessCollection[_login],
-					                          _repository.isBlock[_login]);
-					if (UserModel.IsBlock == false) {
-						Console.WriteLine("Учетная запись заблокирована!");
-						return false;
-					}
-					return true;
-				}
-			}
-		}
-		return false;
+		_repo = repo;
 	}
-	public bool CheckPassword()
+
+	public void CreateFolder(string login) => Directory.CreateDirectory($"User/{login}");
+
+	public UserModel Autorize()
 	{
-		for (int i = 0; i < MAXIMUM_NUMBER_OF_ATTEMPTS; i++)
-		{
-			_password = Console.ReadLine();
-			if (_repository.passwordCollection[_login] == _password) {
-				Console.WriteLine($"Вы вошли как: {_login}\n" +
-				                  $"C правами: {_repository.userCollection[_login]}");
-				_loger.LogEntry("ВХОД");
+		UserModel model = CheckLogin() ?? throw new Exception("Такого пользователя не существует!");
+		if (CheckPassword(model)) {
+			return model;
+		}
+		throw new Exception("Неверный пароль!");
+	}
+
+	public UserModel? CheckLogin()
+	{
+		for (int i = 0; i < MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
+			Console.WriteLine("Введите логин: ");
+			string login = Console.ReadLine() ?? "";
+			UserModel? userModel = _repo.GetUser(login);
+			if (userModel != null) {
+				if (userModel.IsBlock == false) {
+					throw new Exception("Пользователь заблокирован!");
+				}
+				return userModel;
+			}
+			Console.WriteLine("Неверное имя пользователя!");
+		}
+		return null;
+	}
+
+	public bool CheckPassword(UserModel model)
+	{
+		for (int i = 0; i < MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
+			Console.WriteLine("Введите пароль:");
+			string pass = Console.ReadLine() ?? "";
+			if (pass == model.Password) {
 				return true;
 			}
+			Console.WriteLine("Неверный пароль!");
 		}
-		BlockEntry(false);
+		BlockUser(model);
 		return false;
 	}
-	private void BlockEntry(bool isBlock)
+
+	private void BlockUser(UserModel model)
 	{
-		_repository.isBlock[UserModel.LoginUser] = false;
-		Repository.WriteBlockedEntries(_repository.isBlock);
-		_loger.LogEntry("УЧЕТНАЯ ЗАПИСЬ ЗАБЛОКИРОВАНА");
+		model.IsBlock = false;
+		_logger.LogEntry(model, "УЧЕТНАЯ ЗАПИСЬ ЗАБЛОКИРОВАНА");
 	}
 }

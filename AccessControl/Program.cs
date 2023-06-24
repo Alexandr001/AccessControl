@@ -2,32 +2,21 @@
 using AccessControl.Enums;
 
 try {
-	Identification ident = new();
-	Console.WriteLine("Введите имя пользователя:");
-	if (ident.CheckLogin() == false) {
-		Console.WriteLine("Нет такого пользователя!");
-		return;
-	}
-	Console.WriteLine("Введите пароль:");
-	if (ident.CheckPassword() == false) {
-		Console.WriteLine("Учетная запись заблокирована!!!");
-		return;
-	}
-	ident.CreateFolder();
-	if (UserModel.UserType == UserType.USER) {
-		User user = new User();
+	Repository repository = new();
+	Identification ident = new(repository);
+	UserModel model = ident.Autorize();
+	if (model.Role == Role.user) {
+		ident.CreateFolder(model.Login);
+		User user = new(model);
 		user.WorksWithFiles();
 	}
-	if (UserModel.UserType == UserType.ADMIN) {
-		Admin admin = new Admin();
-		Console.WriteLine("Введите логин пользователя:");
-		if (ident.CheckLogin() == false) {
-			Console.WriteLine("Нет такого пользователя!");
-			return;
-		}
-		admin.AssignmentRights();
+	if (model.Role == Role.admin) {
+		Admin admin = new(repository);
+		admin.OperationsWithUsers();
+		repository.SetUsers(model);
 	}
 } catch (Exception e) {
 	Console.WriteLine(e);
-	throw;
+} finally {
+	Console.ReadKey();
 }

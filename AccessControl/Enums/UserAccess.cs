@@ -2,12 +2,10 @@
 {
 	public enum UserAccess
 	{
-		READING = 1,
-		RECORD = 2,
-		CREATURE = 3,
-		REMOVAL = 4,
-		COPYING = 5,
-		MOVING = 6
+		CREATURE = 1,
+		REMOVAL = 2,
+		COPYING = 3,
+		MOVING = 4
 	}
 }
 

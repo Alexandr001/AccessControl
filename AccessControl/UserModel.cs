@@ -4,7 +4,7 @@ namespace AccessControl
 {
 	public class UserModel
 	{
-		private const string PATH_PROJECT = "C:/Users/Adilya/RiderProjects/AccessСontrol/User/";
+		private const string PATH_PROJECT = "User/";
 		public static UserType UserType { get; private set; }
 		public static string HomeFolder { get; private set; }
 		public static List<int> AccessUser { get; private set; }

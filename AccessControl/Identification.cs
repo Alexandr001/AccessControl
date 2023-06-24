@@ -6,7 +6,7 @@ public class Identification
 {
 	public const int MAXIMUM_NUMBER_OF_ATTEMPTS = 3;
 	private readonly Repository _repository = new();
-	private readonly Loger _loger = new();
+	private readonly Logger _logger = new();
 	private string _login;
 	private string _password;
 	public void CreateFolder() =>
@@ -42,7 +42,7 @@ public class Identification
 			if (_repository.passwordCollection[_login] == _password) {
 				Console.WriteLine($"Вы вошли как: {_login}\n" +
 				                  $"C правами: {_repository.userCollection[_login]}");
-				_loger.LogEntry("ВХОД");
+				_logger.LogEntry("ВХОД");
 				return true;
 			}
 		}
@@ -53,6 +53,6 @@ public class Identification
 	{
 		_repository.isBlock[UserModel.LoginUser] = false;
 		Repository.WriteBlockedEntries(_repository.isBlock);
-		_loger.LogEntry("УЧЕТНАЯ ЗАПИСЬ ЗАБЛОКИРОВАНА");
+		_logger.LogEntry("УЧЕТНАЯ ЗАПИСЬ ЗАБЛОКИРОВАНА");
 	}
 }

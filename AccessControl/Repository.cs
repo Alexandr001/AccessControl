@@ -6,34 +6,34 @@ namespace AccessControl
 	{
 		private const string ADMIN_FOLDER = @"Admin\";
 		private const string BLOCKED_ENTRIES = @"Admin\BlockedEntries.txt";
-		private const string ALEXANDER = "Alexander";
-		private const string ADILYA = "Adilya";
+		private const string GARIK = "Garik";
+		private const string IVAN = "Ivan";
 		private const string ARTEM = "Artem";
-		private const string POPOV = "Popov";
+		private const string PETR = "Petr";
 		public readonly Dictionary<string, UserType> userCollection = new() {
-				[ALEXANDER] = UserType.USER,
-				[ADILYA] = UserType.USER,
+				[GARIK] = UserType.USER,
+				[IVAN] = UserType.USER,
 				[ARTEM] = UserType.USER,
-				[POPOV] = UserType.ADMIN
+				[PETR] = UserType.ADMIN
 		};
 		public readonly Dictionary<string, string> passwordCollection = new() {
-				[ALEXANDER] = "1234aaa",
-				[ADILYA] = "1234bbb",
+				[GARIK] = "1234aaa",
+				[IVAN] = "1234bbb",
 				[ARTEM] = "1234vvv",
-				[POPOV] = "1234admin"
+				[PETR] = "1234admin"
 		};
 		public readonly Dictionary<string, List<int>> accessCollection = new() {
-				[ALEXANDER] = ReadAccess(ADMIN_FOLDER + ALEXANDER + ".txt"),
-				[ADILYA] = ReadAccess(ADMIN_FOLDER + ADILYA + ".txt"),
+				[GARIK] = ReadAccess(ADMIN_FOLDER + GARIK + ".txt"),
+				[IVAN] = ReadAccess(ADMIN_FOLDER + IVAN + ".txt"),
 				[ARTEM] = ReadAccess(ADMIN_FOLDER + ARTEM + ".txt"),
-				[POPOV] = null
+				[PETR] = null
 		};
 		public readonly Dictionary<string, bool> isBlock = new() {
 				/* Последовательность в файле: Alexander, Adilya, Artem */
-				[ALEXANDER] = ReadBlockedEntries(BLOCKED_ENTRIES)[0],
-				[ADILYA] = ReadBlockedEntries(BLOCKED_ENTRIES)[1],
+				[GARIK] = ReadBlockedEntries(BLOCKED_ENTRIES)[0],
+				[IVAN] = ReadBlockedEntries(BLOCKED_ENTRIES)[1],
 				[ARTEM] = ReadBlockedEntries(BLOCKED_ENTRIES)[2],
-				[POPOV] = true
+				[PETR] = true
 		};
 
 		private static List<int> ReadAccess(string path)

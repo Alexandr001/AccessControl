@@ -2,9 +2,9 @@
 
 namespace AccessControl
 {
-	public class Loger
+	public class Logger
 	{
-		private const string PATH = @"Admin\journal.txt";
+		private const string PATH = @"Admin\log.txt";
 		public void LogEntry(UserAccess action)
 		{
 			string log = $"Пользователь [{UserModel.LoginUser}]; действие[{action}]; дата и время: {DateTime.Now}";

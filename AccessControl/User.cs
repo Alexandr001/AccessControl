@@ -4,15 +4,15 @@ namespace AccessControl
 {
 	public class User
 	{
-		private Loger _loger = new();
+		private Logger _logger = new();
 		private File _file = new();
 
 		public void WorksWithFiles()
 		{
 			for (int i = 0; i < Identification.MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
 				Console.WriteLine(UserModel.HomeFolder);
-				Console.WriteLine("Выберите режим работы:\n" + "1 - Чтение\t" + "2 - Запись\n" + "3 - Создание\t" + "4 - Удаление\n"
-				                  + "5 - Копирование\t" + "6 - Перемещение");
+				Console.WriteLine("Выберите режим работы:\n" + "1 - Создание\t" + "2 - Удаление\n"
+				                  + "3 - Копирование\t" + "4 - Перемещение");
 				OutputAvailableModes();
 				int operatingMode = Convert.ToInt32(Console.ReadLine());
 				if (Сheck(operatingMode) == false) {
@@ -22,36 +22,26 @@ namespace AccessControl
 				Console.WriteLine("Введите название файла:");
 				string pathFile = UserModel.HomeFolder + Console.ReadLine();
 				switch (operatingMode) {
-					case (int) UserAccess.READING:
-						_file.Read(pathFile);
-						_loger.LogEntry(UserAccess.READING);
-						return;
-					case (int) UserAccess.RECORD:
-						Console.WriteLine("Введите текст для записи:");
-						string? text = Console.ReadLine();
-						_file.Write(pathFile, text);
-						_loger.LogEntry(UserAccess.RECORD);
-						return;
 					case (int) UserAccess.CREATURE:
 						Console.WriteLine(UserModel.HomeFolder);
 						_file.Create(pathFile);
-						_loger.LogEntry(UserAccess.CREATURE);
+						_logger.LogEntry(UserAccess.CREATURE);
 						return;
 					case (int) UserAccess.REMOVAL:
 						_file.Remove(pathFile);
-						_loger.LogEntry(UserAccess.REMOVAL);
+						_logger.LogEntry(UserAccess.REMOVAL);
 						return;
 					case (int) UserAccess.COPYING:
 						Console.WriteLine("Введите путь к папке для копирования: ");
 						string? pathCopy = Console.ReadLine();
 						_file.Copy(pathFile, pathCopy);
-						_loger.LogEntry(UserAccess.COPYING);
+						_logger.LogEntry(UserAccess.COPYING);
 						return;
 					case (int) UserAccess.MOVING:
 						Console.WriteLine("Введите путь к папке для Перемещения:");
 						string? pathMove = Console.ReadLine();
 						_file.Move(pathFile, pathMove);
-						_loger.LogEntry(UserAccess.MOVING);
+						_logger.LogEntry(UserAccess.MOVING);
 						return;
 					default:
 						throw new Exception("Что то пошло не так!!!");

@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AccessControl/ListUserModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccessControl/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Admin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Enums/UserAccess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Enums/UserAccess.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Enums/UserType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Enums/Role.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/File.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/File.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Identification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Identification.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccessControl/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Logger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccessControl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccessControl/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Repository.cs" afterDir="false" />
@@ -28,10 +25,6 @@
         <option value="JSON File" />
       </list>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/User.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -87,7 +80,9 @@
       <option name="presentableId" value="Default" />
       <updated>1687600553647</updated>
       <workItem from="1687600555576" duration="7003000" />
-      <workItem from="1687608491517" duration="13093000" />
+      <workItem from="1687608491517" duration="14049000" />
+      <workItem from="1687887216549" duration="921000" />
+      <workItem from="1687893831164" duration="1608000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1687603796849</created>
@@ -103,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687607939462</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Нужно поправить добавление и удаление пользователя">
+      <created>1687640164196</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687640164196</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +140,65 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="изменеия для Гарика" />
-    <option name="LAST_COMMIT_MESSAGE" value="изменеия для Гарика" />
+    <MESSAGE value="Нужно поправить добавление и удаление пользователя" />
+    <option name="LAST_COMMIT_MESSAGE" value="Нужно поправить добавление и удаление пользователя" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccessControl/Repository.cs</url>
+          <line>10</line>
+          <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\Repository.cs" initialLine="10" containingFunctionPresentation="constructor 'Repository'">
+            <startOffsets>
+              <option value="206" />
+            </startOffsets>
+            <endOffsets>
+              <option value="344" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccessControl/User.cs</url>
+          <line>12</line>
+          <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\User.cs" initialLine="12" containingFunctionPresentation="constructor 'User'">
+            <startOffsets>
+              <option value="242" />
+            </startOffsets>
+            <endOffsets>
+              <option value="265" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccessControl/User.cs</url>
+          <line>22</line>
+          <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\User.cs" initialLine="22" containingFunctionPresentation="method 'WorksWithFiles'">
+            <startOffsets>
+              <option value="682" />
+            </startOffsets>
+            <endOffsets>
+              <option value="716" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccessControl/User.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\User.cs" initialLine="28" containingFunctionPresentation="method 'WorksWithFiles'">
+            <startOffsets>
+              <option value="917" />
+            </startOffsets>
+            <endOffsets>
+              <option value="939" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -17,7 +17,7 @@ namespace AccessControl
 			for (int i = 0; i < Identification.MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
 				Console.WriteLine("Домашняя папка: " + _userModel.HomeFolder);
 				Console.WriteLine("Выберите режим работы:\n" + "1 - Чтение\t" + "2 - Запись\n" + 
-				                  "3 - Создание\t" + "4 - Удаление\n");
+				                  "3 - Создание\t" + "4 - Удаление");
 				OutputAvailableModes();
 				int operatingMode = Convert.ToInt32(Console.ReadLine());
 				if (Сheck(operatingMode) == false) {
@@ -25,7 +25,7 @@ namespace AccessControl
 					continue;
 				}
 				Console.WriteLine("Введите название файла:");
-				string pathFile = _userModel.HomeFolder + Console.ReadLine();
+				string pathFile = _userModel.HomeFolder + "/" + Console.ReadLine();
 				switch (operatingMode) {
 					case (int) UserAccess.READING:
 						_file.Read(pathFile);
@@ -38,7 +38,6 @@ namespace AccessControl
 						_logger.LogEntry(_userModel, UserAccess.RECORD);
 						return;
 					case (int) UserAccess.CREATURE:
-						Console.WriteLine(_userModel.HomeFolder);
 						_file.Create(pathFile);
 						_logger.LogEntry(_userModel, UserAccess.CREATURE);
 						return;

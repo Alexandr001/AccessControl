@@ -11,7 +11,6 @@ namespace AccessControl
 			_repo = repo;
 		}
 
-		private const string PATH_ADMIN_FOLDER = @"Admin\";
 		private const string PATH_FOR_USER = "User/";
 		
 		public void OperationsWithUsers()
@@ -37,7 +36,7 @@ namespace AccessControl
 		private void PrintUsers()
 		{
 			Console.WriteLine("Существующие пользователи: ");
-			foreach (UserModel accessModes in _repo.List) {
+			foreach (UserModel accessModes in _repo.List.List) {
 				Console.WriteLine(accessModes.Login);
 			}
 		}
@@ -51,7 +50,7 @@ namespace AccessControl
 			UserModel userModel = new() {
 					Login = login,
 					Password = password,
-					AccessUser = {
+					AccessUser = new List<int>() {
 							(int) UserAccess.READING, 
 							(int) UserAccess.RECORD,
 							(int) UserAccess.CREATURE,
@@ -59,7 +58,7 @@ namespace AccessControl
 					},
 					IsBlock = true,
 					HomeFolder = PATH_FOR_USER + login,
-					Role = Role.user
+					Role = Role.user.ToString()
 			};
 			_repo.AddUser(userModel);
 			Console.WriteLine("Пользователь успешно создан!");

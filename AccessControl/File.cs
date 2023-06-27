@@ -16,19 +16,22 @@ public class File
 
 	public void Write(string name, string? text)
 	{
-		using (FileStream fStream = new FileStream(name, FileMode.Truncate)) {
+		using (FileStream fStream = new(name, FileMode.Truncate)) {
 			byte[] buffer = Encoding.Default.GetBytes(text);
 			fStream.Write(buffer, 0, buffer.Length);
 		}
+		Console.WriteLine("Запись текста в файл прошла успешно.");
 	}
 
 	public void Create(string name)
 	{
 		System.IO.File.Create(name);
+		Console.WriteLine("Файл успешно создан!");
 	}
 
 	public void Remove(string name)
 	{
 		System.IO.File.Delete(name);
+		Console.WriteLine("Файл успешно удалён!");
 	}
 }

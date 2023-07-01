@@ -1,25 +1,24 @@
 ﻿using AccessControl.Enums;
 
-namespace AccessControl
+namespace AccessControl;
+
+public class Logger
 {
-	public class Logger
+	private const string PATH = "Admin/log.txt";
+	public void LogEntry(UserModel model, UserAccess action)
 	{
-		private const string PATH = "Admin/log.txt";
-		public void LogEntry(UserModel model, UserAccess action)
+		string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";
+		using (StreamWriter writer = new(PATH, true))
 		{
-			string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";
-			using (StreamWriter writer = new(PATH, true))
-			{
-				writer.WriteLine(log);
-			}
+			writer.WriteLine(log);
 		}
-		public void LogEntry(UserModel model, string action)
+	}
+	public void LogEntry(UserModel model, string action)
+	{
+		string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";
+		using (StreamWriter writer = new(PATH, true))
 		{
-			string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";
-			using (StreamWriter writer = new(PATH, true))
-			{
-				writer.WriteLine(log);
-			}
+			writer.WriteLine(log);
 		}
 	}
 }

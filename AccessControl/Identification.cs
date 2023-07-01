@@ -16,10 +16,8 @@ public class Identification
 	public UserModel Autorize()
 	{
 		UserModel model = CheckLogin() ?? throw new Exception("Такого пользователя не существует!");
-		if (CheckPassword(model)) {
-			return model;
-		}
-		throw new Exception("Неверный пароль!");
+		CheckPassword(model);
+		return model;
 	}
 
 	public UserModel? CheckLogin()
@@ -55,6 +53,7 @@ public class Identification
 
 	private void BlockUser(UserModel model)
 	{
+		Console.WriteLine("Пользователь заблокирован!");
 		model.IsBlock = false;
 		_logger.LogEntry(model, "УЧЕТНАЯ ЗАПИСЬ ЗАБЛОКИРОВАНА");
 	}

@@ -5,6 +5,10 @@ try {
 	Repository repository = new();
 	Identification ident = new(repository);
 	UserModel model = ident.Autorize();
+	if (model.IsBlock == false) {
+		repository.SetUsers(model);
+		return;
+	}
 	if (model.Role == Role.user.ToString()) {
 		ident.CreateFolder(model.Login);
 		User user = new(model);
@@ -16,7 +20,7 @@ try {
 		repository.SetUsers(model);
 	}
 } catch (Exception e) {
-	Console.WriteLine(e);
+	Console.WriteLine(e.Message);
 } finally {
 	Console.ReadKey();
 }

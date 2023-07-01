@@ -1,9 +1,8 @@
-﻿namespace AccessControl.Enums
+﻿namespace AccessControl.Enums;
+
+[Flags]
+public enum Role
 {
-	[Flags]
-	public enum Role
-	{
-		user,
-		admin
-	}
+	user,
+	admin
 }

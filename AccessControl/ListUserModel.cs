@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace AccessControl;
 
 public class ListUserModel

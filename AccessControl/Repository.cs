@@ -43,4 +43,14 @@ public class Repository
 	{
 		System.IO.File.WriteAllText(PATH_TO_JSON, jsonStr);
 	}
+
+	public void BlockUser(string login)
+	{
+		GetUser(login).IsBlock = false;
+	}
+
+	public void UnblockUser(string login)
+	{
+		throw new NotImplementedException();
+	}
 }

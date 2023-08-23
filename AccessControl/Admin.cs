@@ -17,7 +17,9 @@ namespace AccessControl
 		{
 			Console.WriteLine("Выберите режим работы:\n" + 
 			                  "1 - Создать пользователя\n" + 
-			                  "2 - Удалить пользователя");
+			                  "2 - Удалить пользователя\n" +
+			                  "3 - Заблокировать пользователя\n" +
+			                  "4 - Разблокировать пользователя");
 			int operatingMode = int.Parse(Console.ReadLine()!);
 			PrintUsers();
 			Console.WriteLine();
@@ -28,6 +30,12 @@ namespace AccessControl
 				case 2:
 					RemoveUser();
 					break;
+				case 3:
+					BlokUser();
+					break;
+				case 4:
+					UnblockUser();
+					break;
 				default:
 					throw new Exception("Неверный формат ввода");
 			}
@@ -37,7 +45,7 @@ namespace AccessControl
 		{
 			Console.WriteLine("Существующие пользователи: ");
 			foreach (UserModel accessModes in _repo.List.List) {
-				Console.WriteLine(accessModes.Login);
+				Console.WriteLine(accessModes.Login + " - " + accessModes.IsBlock);
 			}
 		}
 
@@ -70,6 +78,22 @@ namespace AccessControl
 			string login = Console.ReadLine()!;
 			_repo.RemoveUser(login);
 			Console.WriteLine("Пользователь успешно удалён!");
+		}
+
+		private void BlokUser()
+		{
+			Console.WriteLine("Введите логин пользователя которого нужно заблокировать: ");
+			string login = Console.ReadLine()!;
+			_repo.BlockUser(login);
+			Console.WriteLine("Пользователь заблокирован!");
+		}
+
+		private void UnblockUser()
+		{
+			Console.WriteLine("Введите логин пользователя которого нужно разблокировать: ");
+			string login = Console.ReadLine()!;
+			_repo.UnblockUser(login);
+			Console.WriteLine("Пользователь разблокирован!");
 		}
 	}
 }

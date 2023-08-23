@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Enums/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Enums/Role.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Identification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Identification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/ListUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/ListUserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Logger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +78,8 @@
       <workItem from="1687887216549" duration="921000" />
       <workItem from="1687893831164" duration="2045000" />
       <workItem from="1687896435873" duration="2211000" />
-      <workItem from="1688222767152" duration="2887000" />
+      <workItem from="1688222767152" duration="3252000" />
+      <workItem from="1688305132795" duration="1236000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1687603796849</created>
@@ -113,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687895786251</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="final version">
+      <created>1688226569928</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688226569928</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +153,8 @@
     <MESSAGE value="изменеия для Гарика" />
     <MESSAGE value="Нужно поправить добавление и удаление пользователя" />
     <MESSAGE value="Программа работает корректно, внесены изменения в работу с json." />
-    <option name="LAST_COMMIT_MESSAGE" value="Программа работает корректно, внесены изменения в работу с json." />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

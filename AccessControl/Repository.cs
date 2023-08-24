@@ -46,11 +46,11 @@ public class Repository
 
 	public void BlockUser(string login)
 	{
-		GetUser(login).IsBlock = false;
+		GetUser(login)!.IsBlock = false;
 	}
 
 	public void UnblockUser(string login)
 	{
-		throw new NotImplementedException();
+		GetUser(login)!.IsBlock = true;
 	}
 }

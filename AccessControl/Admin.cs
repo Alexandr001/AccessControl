@@ -20,7 +20,7 @@ namespace AccessControl
 			                  "2 - Удалить пользователя\n" +
 			                  "3 - Заблокировать пользователя\n" +
 			                  "4 - Разблокировать пользователя");
-			int operatingMode = int.Parse(Console.ReadLine()!);
+			int operatingMode = int.Parse(Writer.Input());
 			PrintUsers();
 			Console.WriteLine();
 			switch (operatingMode) {
@@ -52,9 +52,9 @@ namespace AccessControl
 		private void CreateUser()
 		{
 			Console.WriteLine("Введите логин пользователя:");
-			string login = Console.ReadLine()!;
+			string login = Writer.Input();
 			Console.WriteLine("Введите пароль");
-			string password = Console.ReadLine()!;
+			string password = Writer.Input();
 			UserModel userModel = new() {
 					Login = login,
 					Password = password,
@@ -75,7 +75,7 @@ namespace AccessControl
 		private void RemoveUser()
 		{
 			Console.WriteLine("Введите логин пользователя: ");
-			string login = Console.ReadLine()!;
+			string login = Writer.Input();
 			_repo.RemoveUser(login);
 			Console.WriteLine("Пользователь успешно удалён!");
 		}
@@ -83,7 +83,7 @@ namespace AccessControl
 		private void BlokUser()
 		{
 			Console.WriteLine("Введите логин пользователя которого нужно заблокировать: ");
-			string login = Console.ReadLine()!;
+			string login = Writer.Input();
 			_repo.BlockUser(login);
 			Console.WriteLine("Пользователь заблокирован!");
 		}
@@ -91,7 +91,7 @@ namespace AccessControl
 		private void UnblockUser()
 		{
 			Console.WriteLine("Введите логин пользователя которого нужно разблокировать: ");
-			string login = Console.ReadLine()!;
+			string login = Writer.Input();
 			_repo.UnblockUser(login);
 			Console.WriteLine("Пользователь разблокирован!");
 		}

@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccessControl/Writer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Admin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Identification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Identification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/UserModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +22,13 @@
       <list>
         <option value="JSON File" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="bogatirev" />
+      </map>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -80,6 +91,9 @@
       <workItem from="1687896435873" duration="2211000" />
       <workItem from="1688222767152" duration="3252000" />
       <workItem from="1688305132795" duration="1236000" />
+      <workItem from="1692799654069" duration="855000" />
+      <workItem from="1692810425299" duration="3159000" />
+      <workItem from="1692896887739" duration="646000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1687603796849</created>
@@ -116,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688226569928</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Почти добавлена возможность блокировки и разблокировки пользователя">
+      <created>1692800509338</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692800509338</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,25 +175,7 @@
     <MESSAGE value="Нужно поправить добавление и удаление пользователя" />
     <MESSAGE value="Программа работает корректно, внесены изменения в работу с json." />
     <MESSAGE value="final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccessControl/Repository.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\Repository.cs" initialLine="10" containingFunctionPresentation="constructor 'Repository'">
-            <startOffsets>
-              <option value="206" />
-            </startOffsets>
-            <endOffsets>
-              <option value="344" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Почти добавлена возможность блокировки и разблокировки пользователя" />
+    <option name="LAST_COMMIT_MESSAGE" value="Почти добавлена возможность блокировки и разблокировки пользователя" />
   </component>
 </project>

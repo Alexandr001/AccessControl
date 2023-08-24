@@ -24,7 +24,7 @@ public class Identification
 	{
 		for (int i = 0; i < MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
 			Console.WriteLine("Введите логин: ");
-			string login = Console.ReadLine() ?? "";
+			string login = Writer.Input() ?? "";
 			UserModel? userModel = _repo.GetUser(login);
 			if (userModel != null) {
 				if (userModel.IsBlock == false) {
@@ -41,7 +41,7 @@ public class Identification
 	{
 		for (int i = 0; i < MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
 			Console.WriteLine("Введите пароль:");
-			string pass = Console.ReadLine() ?? "";
+			string pass = Writer.Input() ?? "";
 			if (pass == model.Password) {
 				return true;
 			}

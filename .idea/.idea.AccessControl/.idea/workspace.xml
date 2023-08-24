@@ -4,12 +4,8 @@
     <projectFile>AccessControl/AccessControl.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="Добавлен таймер бездействия. Программа полностью готова">
+    <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Admin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/UserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccessControl/Writer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Writer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +27,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -95,7 +92,7 @@
       <workItem from="1688305132795" duration="1236000" />
       <workItem from="1692799654069" duration="855000" />
       <workItem from="1692810425299" duration="3159000" />
-      <workItem from="1692896887739" duration="3440000" />
+      <workItem from="1692896887739" duration="4019000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1687603796849</created>
@@ -146,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692897724828</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Программа готова">
+      <created>1692900950549</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1692900950549</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +190,8 @@
     <MESSAGE value="final version" />
     <MESSAGE value="Почти добавлена возможность блокировки и разблокировки пользователя" />
     <MESSAGE value="Добавлен таймер бездействия. Программа полностью готова" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен таймер бездействия. Программа полностью готова" />
+    <MESSAGE value="Программа готова" />
+    <option name="LAST_COMMIT_MESSAGE" value="Программа готова" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

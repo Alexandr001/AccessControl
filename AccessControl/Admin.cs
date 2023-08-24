@@ -15,26 +15,18 @@ namespace AccessControl
 		
 		public void OperationsWithUsers()
 		{
-			Console.WriteLine("Выберите режим работы:\n" + 
-			                  "1 - Создать пользователя\n" + 
-			                  "2 - Удалить пользователя\n" +
-			                  "3 - Заблокировать пользователя\n" +
-			                  "4 - Разблокировать пользователя");
+			Console.WriteLine("Выберите режим работы:\n" +
+			                  "1 - Добавить полномочия\n" +
+			                  "2 - Удалить полномочия");
 			int operatingMode = int.Parse(Writer.Input());
 			PrintUsers();
 			Console.WriteLine();
 			switch (operatingMode) {
 				case 1:
-					CreateUser();
+					AddRights();
 					break;
 				case 2:
-					RemoveUser();
-					break;
-				case 3:
-					BlokUser();
-					break;
-				case 4:
-					UnblockUser();
+					RemoveRights();
 					break;
 				default:
 					throw new Exception("Неверный формат ввода");
@@ -48,52 +40,44 @@ namespace AccessControl
 				Console.WriteLine(accessModes.Login + " - " + accessModes.IsBlock);
 			}
 		}
-
-		private void CreateUser()
-		{
-			Console.WriteLine("Введите логин пользователя:");
-			string login = Writer.Input();
-			Console.WriteLine("Введите пароль");
-			string password = Writer.Input();
-			UserModel userModel = new() {
-					Login = login,
-					Password = password,
-					AccessUser = new List<int>() {
-							(int) UserAccess.READING, 
-							(int) UserAccess.RECORD,
-							(int) UserAccess.CREATURE,
-							(int) UserAccess.REMOVAL,
-					},
-					IsBlock = true,
-					HomeFolder = PATH_FOR_USER + login,
-					Role = Role.user.ToString()
-			};
-			_repo.AddUser(userModel);
-			Console.WriteLine("Пользователь успешно создан!");
-		}
-
-		private void RemoveUser()
+		
+		private void AddRights()
 		{
 			Console.WriteLine("Введите логин пользователя: ");
 			string login = Writer.Input();
-			_repo.RemoveUser(login);
-			Console.WriteLine("Пользователь успешно удалён!");
+			UserModel userModel = _repo.GetUser(login)!;
+			
+			Console.WriteLine("1 - Чтение\t" + "2 - Запись\n" + 
+			                  "3 - Создание\t" + "4 - Удаление");
+			Console.WriteLine("Доступные права: " + string.Join(", ", userModel.AccessUser));
+			Console.WriteLine("Введите цифру действия с файлами, которую вы хотите добавить:");
+			int input = InputMode();
+			userModel.AccessUser.Add(input);
 		}
 
-		private void BlokUser()
+		private void RemoveRights()
 		{
-			Console.WriteLine("Введите логин пользователя которого нужно заблокировать: ");
+			Console.WriteLine("Введите логин пользователя: ");
 			string login = Writer.Input();
-			_repo.BlockUser(login);
-			Console.WriteLine("Пользователь заблокирован!");
+			UserModel userModel = _repo.GetUser(login)!;
+			
+			Console.WriteLine("1 - Чтение\t" + "2 - Запись\n" + 
+			                  "3 - Создание\t" + "4 - Удаление");
+			Console.WriteLine("Доступные права: " + string.Join(", ", userModel.AccessUser));
+			Console.WriteLine("Введите цифру действия с файлами, которую вы хотите удалить:");
+			
+			int input = InputMode();
+			userModel.AccessUser.Remove(input);
+			
 		}
 
-		private void UnblockUser()
+		private int InputMode()
 		{
-			Console.WriteLine("Введите логин пользователя которого нужно разблокировать: ");
-			string login = Writer.Input();
-			_repo.UnblockUser(login);
-			Console.WriteLine("Пользователь разблокирован!");
+			int input = int.Parse(Writer.Input());
+			if (input < 1 || input > 4) {
+				throw new Exception("Неверно введенный режим!");
+			}
+			return input;
 		}
 	}
 }

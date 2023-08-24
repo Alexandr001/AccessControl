@@ -27,30 +27,10 @@ public class Repository
 		string serialize = JsonSerializer.Serialize(List);
 		OverwritingJsonFile(serialize);
 	}
-
-	public void AddUser(UserModel model)
-	{
-		List.List.Add(model);
-	}
-	public void RemoveUser(string login)
-	{
-		UserModel userModel = GetUser(login) ??
-		                      throw new NullReferenceException("UserModel is NULL! (Remove user)");
-		List.List.Remove(userModel);
-	}
+	
 
 	private void OverwritingJsonFile(string jsonStr)
 	{
 		System.IO.File.WriteAllText(PATH_TO_JSON, jsonStr);
-	}
-
-	public void BlockUser(string login)
-	{
-		GetUser(login)!.IsBlock = false;
-	}
-
-	public void UnblockUser(string login)
-	{
-		GetUser(login)!.IsBlock = true;
 	}
 }

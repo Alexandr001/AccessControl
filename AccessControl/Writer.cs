@@ -17,7 +17,7 @@ public static class Writer
 					Console.WriteLine("Вы слишком долго бездействовали!");
 					Environment.Exit(100);
 				}
-				i += 3;
+				i += 1;
 				Thread.Sleep(1000);
 			}
 		});

@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Admin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Enums/UserAccess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Enums/UserAccess.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/File.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/File.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Identification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Identification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Writer.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="slepokyrov4k" />
+        <entry key="$PROJECT_DIR$" value="ilyshkin4" />
       </map>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -169,7 +171,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="garik" />
+                        <option value="dovlatbek" />
                       </list>
                     </value>
                   </entry>
@@ -192,24 +194,5 @@
     <MESSAGE value="Добавлен таймер бездействия. Программа полностью готова" />
     <MESSAGE value="Программа готова" />
     <option name="LAST_COMMIT_MESSAGE" value="Программа готова" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccessControl/Admin.cs</url>
-          <line>70</line>
-          <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\Admin.cs" initialLine="71" containingFunctionPresentation="method 'RemoveRights'">
-            <startOffsets>
-              <option value="1975" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1975" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

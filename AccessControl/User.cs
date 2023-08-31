@@ -16,8 +16,8 @@ public class User
 	{
 		for (int i = 0; i < Identification.MAXIMUM_NUMBER_OF_ATTEMPTS; i++) {
 			Console.WriteLine("Домашняя папка: " + _userModel.HomeFolder);
-			Console.WriteLine("Выберите режим работы:\n" + "1 - Чтение\t" + "2 - Запись\n" + 
-			                  "3 - Создание\t" + "4 - Удаление");
+			Console.WriteLine("Выберите режим работы:\n" + "1 - Создание\t" + "2 - Удаление\n" + 
+			                  "3 - Копирование\t" + "4 - Перемещение");
 			OutputAvailableModes();
 			int operatingMode = Convert.ToInt32(Console.ReadLine());
 			if (Сheck(operatingMode) == false) {
@@ -27,16 +27,6 @@ public class User
 			Console.WriteLine("Введите название файла:");
 			string pathFile = _userModel.HomeFolder + "/" + Console.ReadLine();
 			switch (operatingMode) {
-				case (int) UserAccess.READING:
-					_file.Read(pathFile);
-					_logger.LogEntry(_userModel, UserAccess.READING);
-					return;
-				case (int) UserAccess.RECORD:
-					Console.WriteLine("Введите текст для записи:");
-					string? text = Console.ReadLine();
-					_file.Write(pathFile, text);
-					_logger.LogEntry(_userModel, UserAccess.RECORD);
-					return;
 				case (int) UserAccess.CREATURE:
 					_file.Create(pathFile);
 					_logger.LogEntry(_userModel, UserAccess.CREATURE);
@@ -44,6 +34,18 @@ public class User
 				case (int) UserAccess.REMOVAL:
 					_file.Remove(pathFile);
 					_logger.LogEntry(_userModel, UserAccess.REMOVAL);
+					return;
+				case (int) UserAccess.COPYING:
+					Console.WriteLine("Введите путь к папке для копирования: ");
+					string? pathCopy = Console.ReadLine();
+					_file.Copy(pathFile, pathCopy);
+					_logger.LogEntry(_userModel, UserAccess.COPYING);
+					return;
+				case (int) UserAccess.MOVING:
+					Console.WriteLine("Введите путь к папке для Перемещения:");
+					string? pathMove = Console.ReadLine();
+					_file.Move(pathFile, pathMove);
+					_logger.LogEntry(_userModel, UserAccess.MOVING);
 					return;
 				default:
 					throw new Exception("Что то пошло не так!!!");

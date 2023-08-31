@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="220504fd-612f-466d-9511-4562c75df64d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AccessControl/FileProtection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccessControl/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Admin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Identification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Identification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccessControl/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccessControl/Writer.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +27,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="slepokyrov4k" />
+        <entry key="$PROJECT_DIR$" value="ilyshkin4" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Adilya/RiderProjects/AccessControl/AccessControl/Admin.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -150,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692900950549</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=".">
+      <created>1693503238370</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693503238370</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +202,8 @@
     <MESSAGE value="Почти добавлена возможность блокировки и разблокировки пользователя" />
     <MESSAGE value="Добавлен таймер бездействия. Программа полностью готова" />
     <MESSAGE value="Программа готова" />
-    <option name="LAST_COMMIT_MESSAGE" value="Программа готова" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -201,10 +213,10 @@
           <line>70</line>
           <properties documentPath="C:\Users\Adilya\RiderProjects\AccessControl\AccessControl\Admin.cs" initialLine="71" containingFunctionPresentation="method 'RemoveRights'">
             <startOffsets>
-              <option value="1975" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1975" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

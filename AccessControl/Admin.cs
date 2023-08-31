@@ -18,7 +18,7 @@ namespace AccessControl
 			Console.WriteLine("Выберите режим работы:\n" +
 			                  "1 - Добавить полномочия\n" +
 			                  "2 - Удалить полномочия");
-			int operatingMode = int.Parse(Writer.Input());
+			int operatingMode = int.Parse(Console.ReadLine());
 			PrintUsers();
 			Console.WriteLine();
 			switch (operatingMode) {
@@ -44,7 +44,7 @@ namespace AccessControl
 		private void AddRights()
 		{
 			Console.WriteLine("Введите логин пользователя: ");
-			string login = Writer.Input();
+			string login = Console.ReadLine();
 			UserModel userModel = _repo.GetUser(login)!;
 			
 			Console.WriteLine("1 - Чтение\t" + "2 - Запись\n" + 
@@ -58,7 +58,7 @@ namespace AccessControl
 		private void RemoveRights()
 		{
 			Console.WriteLine("Введите логин пользователя: ");
-			string login = Writer.Input();
+			string login = Console.ReadLine();
 			UserModel userModel = _repo.GetUser(login)!;
 			
 			Console.WriteLine("1 - Чтение\t" + "2 - Запись\n" + 
@@ -73,7 +73,7 @@ namespace AccessControl
 
 		private int InputMode()
 		{
-			int input = int.Parse(Writer.Input());
+			int input = int.Parse(Console.ReadLine());
 			if (input < 1 || input > 4) {
 				throw new Exception("Неверно введенный режим!");
 			}

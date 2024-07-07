@@ -2,6 +2,8 @@
 using AccessControl.Enums;
 
 try {
+	AccessRightsToLoggingFile.RemoveRights();
+	
 	Repository repository = new();
 	Identification ident = new(repository);
 	UserModel model = ident.Autorize();
@@ -22,5 +24,13 @@ try {
 } catch (Exception e) {
 	Console.WriteLine(e.Message);
 } finally {
+	if (AccessRightsToLoggingFile.IsUnLock)
+	{
+		AccessRightsToLoggingFile.RemoveRights();
+	}
+	else
+	{
+		AccessRightsToLoggingFile.AddRights();
+	}
 	Console.ReadKey();
 }

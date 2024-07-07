@@ -4,7 +4,7 @@ namespace AccessControl;
 
 public class Logger
 {
-	private const string PATH = "Admin/log.txt";
+	public const string PATH = "Admin/log.txt";
 	public void LogEntry(UserModel model, UserAccess action)
 	{
 		string log = $"Пользователь [{model.Login}]; действие[{action}]; дата и время: {DateTime.Now}";

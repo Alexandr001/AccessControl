@@ -17,7 +17,9 @@ namespace AccessControl
 		{
 			Console.WriteLine("Выберите режим работы:\n" + 
 			                  "1 - Создать пользователя\n" + 
-			                  "2 - Удалить пользователя");
+			                  "2 - Удалить пользователя\n" + 
+			                  "3 - Разблокировать файл журналирования\n" + 
+			                  "4 - Заблокировать файл журналирования");
 			int operatingMode = int.Parse(Console.ReadLine()!);
 			PrintUsers();
 			Console.WriteLine();
@@ -27,6 +29,12 @@ namespace AccessControl
 					break;
 				case 2:
 					RemoveUser();
+					break;
+				case 3:
+					UnLockLogFile();
+					break;
+				case 4:
+					LockLogFile();
 					break;
 				default:
 					throw new Exception("Неверный формат ввода");
@@ -70,6 +78,17 @@ namespace AccessControl
 			string login = Console.ReadLine()!;
 			_repo.RemoveUser(login);
 			Console.WriteLine("Пользователь успешно удалён!");
+		}
+
+		private void LockLogFile()
+		{
+			AccessRightsToLoggingFile.IsUnLock = false;
+			AccessRightsToLoggingFile.AddRights();
+		}
+		private void UnLockLogFile()
+		{
+			AccessRightsToLoggingFile.IsUnLock = true;
+			AccessRightsToLoggingFile.RemoveRights();
 		}
 	}
 }
